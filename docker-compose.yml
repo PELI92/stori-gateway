@@ -1,0 +1,24 @@
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./config:/app/config
+    depends_on:
+      - auth
+      - user
+
+  auth:
+    image: hashicorp/http-echo
+    command: ["-text=auth service response"]
+    ports:
+      - "9001:5678"
+
+  user:
+    image: hashicorp/http-echo
+    command: ["-text=user service response"]
+    ports:
+      - "9002:5678"

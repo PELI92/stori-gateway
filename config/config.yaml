@@ -1,0 +1,7 @@
+api_key: "supersecretkey"
+
+services:
+  auth:
+    url: "http://auth:5678"
+  user:
+    url: "http://user:5678"
