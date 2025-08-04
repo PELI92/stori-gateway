@@ -12,13 +12,13 @@ services:
       - user
 
   auth:
-    image: hashicorp/http-echo
-    command: ["-text=auth service response"]
+    build:
+      context: ./mock
     ports:
       - "9001:5678"
 
   user:
-    image: hashicorp/http-echo
-    command: ["-text=user service response"]
+    build:
+      context: ./mock
     ports:
       - "9002:5678"
