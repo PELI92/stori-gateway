@@ -45,6 +45,8 @@ Notes:
 
 This will create a container for this service plus 2 mock services to test it: user and auth.
 
+When running locally, hot reload can be tested by changing config/condig.yaml for simplicity. In a cloud environment this should be configured for a VM volume file, S3 file, secret or via DB
+
 ##  Examples
 
 #### ✅  OK
