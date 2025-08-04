@@ -1,0 +1,57 @@
+# Binaries for programs and tests
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Output of the go build command
+/build/
+bin/
+dist/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Dependency directories (if using vendoring)
+vendor/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Go modules
+go.sum
+
+# Logs
+*.log
+
+# Artillery reports
+*.artillery.json
+artillery-report.json
+
+# Test temp files
+*.cover
+*.testresult
+*.tmp
+
+# Docker
+*.env
+*.local.env
+.env.*
+docker-compose.override.yml
+
+# Swagger generated files (if generated)
+docs/swagger.json
+docs/swagger.yaml
+
+# GitHub Codespaces or Gitpod
+.devcontainer/
+.gitpod.yml
+
+# Coverage profi

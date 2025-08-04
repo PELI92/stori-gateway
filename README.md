@@ -25,15 +25,32 @@ Design and implement a lightweight API Gateway / Reverse Proxy in **Go** that:
 ## 📂 Directory Structure (simplified)
 
 ```
-.
-├── cmd/gateway              # Application entrypoint
-├── config/config.yaml       # Route + API key config
-├── internal/
-│   ├── config               # Config loading + hot reload
-│   ├── middleware           # Validation + logging
-│   └── proxy                # Reverse proxy logic
-├── Dockerfile
-└── docker-compose.yml
+stori-gateway/
+├── cmd/
+│   └── gateway/              # Entry point (main.go)
+│       └── main.go
+│
+├── config/
+│   └── config.yaml           # Runtime configuration (services, API key, etc.)
+│
+├── internal/                 # Application core
+│   ├── config/               # Configuration loader and provider
+│   ├── middleware/           # Gin middlewares (auth, validation, logging)
+│   └── proxy/                # Reverse proxy logic and request forwarding
+│
+├── docs/
+│   └── swagger.go            # Swagger spec definition
+│
+├── mock/                     # Mock backend service for testing
+│
+├── test/
+│   └── load-test.yml         # Artillery load test scenario
+│
+├── docker-compose.yml        # Orchestration of all services
+├── Dockerfile                # Gateway Dockerfile
+├── go.mod                    # Project dependencies
+└── README.md                 # Project documentation
+
 ```
 
 ## 🚀 How to Run
