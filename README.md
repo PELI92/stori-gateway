@@ -71,3 +71,24 @@ This will create a container for this service plus 2 mock services to test it: u
 ```bash
   curl -i http://localhost:8080/swagger.json
 ```
+
+#### 🚀 Load testing
+
+When the app is running cd to test directory:
+
+```bash
+    cd test
+```
+
+and execute with artillery:
+
+```bash
+  artillery run load-test.yml
+```
+
+To install artillery:
+```bash
+  npm install -g artillery
+```
+
+This will test the app with GET and POST (w/JSON) at 1000 req/s each, for 10 seconds. As configured, it can easily handler 2000 req/s combined. For a more demanding context I would suggest adding multiple instances and a load balancer.

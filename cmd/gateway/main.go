@@ -9,6 +9,7 @@ import (
 	"stori-gateway/internal/docs"
 	"stori-gateway/internal/middleware"
 	"stori-gateway/internal/proxy"
+	"strings"
 )
 
 func main() {
@@ -17,6 +18,15 @@ func main() {
 	cfg := config.LoadConfig()
 
 	r := gin.New()
+
+	switch env := strings.ToLower(os.Getenv("APP_ENV")); env {
+	case "prod", "release":
+		gin.SetMode(gin.ReleaseMode)
+	default:
+		gin.SetMode(gin.DebugMode)
+	}
+
+	log.Info().Str("gin_mode", gin.Mode()).Msg("starting server")
 
 	// This configuration is used to suppress warning. This is ok because we are not going to use a LB or reverse proxy before this service. (this service will be the reverse proxy)
 	err := r.SetTrustedProxies(nil)
